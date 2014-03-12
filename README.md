@@ -7,7 +7,6 @@ Database access menggunakan PDO dengan Static Class
 ``` php
 require_once 'StaticDatabase.php';
 ```
-</div>
 
 <p>Dalam model static ini saya mengunakan metode chaining dalam memanggil method</p>
 
@@ -16,13 +15,11 @@ require_once 'StaticDatabase.php';
 StaticDatabase::get('users')->result();
 //SELECT * FROM users;
 ```
-</div>
 
 <p>atau menggunakan costum query</p>
 ``` php
 StaticDatabase::query('SELECT id, nama, email FROM users')->result();
 ```
-</div>
 
 <p>atau dengan menambahkan fungsi where</p>
 ``` php
@@ -31,28 +28,24 @@ StaticDatabase::get('users')->where('id', 2)->result();
 StaticDatabase::get('users')->where('id', 2)->where('nama','defri')->result();
 //SELECT * FROM users WHERE id = 2 AND nama = 'defri'
 ```
-</div>
 
 <p>atau dengan menambahkan fungsi limit</p>
 ``` php
 StaticDatabase::get('users')->limit(2)->result();
 //SELECT * FROM users LIMIT 2
 ```
-</div>
 
 <p>atau dengan menambahkan fungsi order by</p>
 ``` php
 StaticDatabase::get('users')->orderby('id', 'DESC')->result();
 //SELECT * FROM users ORDER BY id DESC; 
 ```
-</div>
 
 <p>atau dengan menambahkan fungsi group by</p>
 ``` php
 StaticDatabase::get('users')->groupby('nama')->result();
 //SELECT * FROM users GROUP BY nama; 
 ```
-</div>
 
 <h1>Insert Query</h1>
 <p>Insert query dengan satu data</p>
@@ -65,7 +58,6 @@ $data = array(
 
 StaticDatabase::insert('users', $data);
 ```
-</div>
 
 <p>Atau dengan insert query dengan banyak data</p>
 ``` php
@@ -84,7 +76,6 @@ $data = array(
 
 StaticDatabase::insert('users', $data);
 ```
-</div>
 
 <h1>Update Query</h1>
 ``` php
@@ -94,11 +85,9 @@ $data = array(
 );
 
 StaticDatabase::update('users', $data)->where('id', 7)->result();
-</pre>
-</div>
+```
 
 <h1>Delete Query</h1>
 ``` php
 StaticDatabase::delete('users')->where('id', 7)->result();
 ```
-</div>
