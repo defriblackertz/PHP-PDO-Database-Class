@@ -91,3 +91,7 @@ StaticDatabase::update('users', $data)->where('id', 7)->result();
 ``` php
 StaticDatabase::delete('users')->where('id', 7)->result();
 ```
+<h1>Pesan Error</h1>
+![ScreenShot](/error.png)
+
+<p>jika ada saran email saya di defriblackertz@gmail.com</p>
