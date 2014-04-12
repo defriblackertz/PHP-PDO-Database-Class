@@ -2,7 +2,13 @@ PHP-PDO-Database-Class
 ======================
 
 Database access menggunakan PDO dengan Static Class
-
+<p>Setting database terlebih dahulu</p>
+<p>Buka file StaticDatabase.php, kemudian setting sesuai konfigurasi.</p>
+``` php
+private static $dsn = 'mysql:host=localhost;dbname=test'; <-- Contoh pemanggilan host dan nama database. 
+private static $username = 'root'; <-- Contoh username mysql.
+private static $password = ''; <-- Contoh password mysql.
+```
 <p>Untuk menggunakan class ini, pertama harus import StaticDatabase.php kedalam project kamu dan panggil dengan cara dibawah ini.</p>
 ``` php
 require_once 'StaticDatabase.php';
@@ -11,9 +17,12 @@ require_once 'StaticDatabase.php';
 <p>Dalam model static ini saya mengunakan metode chaining dalam memanggil method</p>
 
 <h1>Select Query</h1>
+<p>Hasil data secara default yaitu menghasilkan data array, jika ingin yang dihasilkan objek yaitu dengan menambahkan PDO::FETCH_OBJ pada method result()</p>
 ``` php
 StaticDatabase::get('users')->result();
 //SELECT * FROM users;
+//menghasilkan data objek
+StaticDatabase::query('SELECT id, nama, email FROM users')->result(PDO::FETCH_OBJ);
 ```
 
 <p>atau menggunakan costum query</p>
