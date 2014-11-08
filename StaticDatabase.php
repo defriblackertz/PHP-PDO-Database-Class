@@ -320,12 +320,12 @@ class StaticDatabase {
                     $stmt->bindValue(":" . $where, $value);
                 }
                 
-                if (strpos(static::$_query, 'UPDATE') !== false) {
+                if (strpos($filter, 'UPDATE') !== false) {
                     foreach (static::$_datatable as $f => $v) {
                         $stmt->bindValue(':' . $f, $v);
                     }
                     return $stmt->execute();
-                } else if (strpos(static::$_query, 'DELETE') !== false) {
+                } else if (strpos($filter, 'DELETE') !== false) {
                     return $stmt->execute();
                 } 
             }
