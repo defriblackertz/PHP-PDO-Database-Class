@@ -123,13 +123,13 @@ class StaticDatabase {
     
     /**
      * @param string $field     Nama kolom tabel didatabase
+     * @param string $operator  Operator perbandingan
      * @param string $value     Nilai didalam kolom tabel didatabase
      * 
      * @return \StaticDatabase anggota didalam class
      */
-    public function where($field, $value) {
-        static::$_query .= " WHERE " . $field . " = :" . $field;
-        
+    public function where($field, $operator, $value) {
+        static::$_query .= " WHERE " . $field . " ".$operator." :" . $field;
         
         static::$_where[$field] = $value;
 
