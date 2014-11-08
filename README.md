@@ -32,9 +32,9 @@ StaticDatabase::query('SELECT id, nama, email FROM users')->result();
 
 <p>atau dengan menambahkan fungsi where</p>
 ``` php
-StaticDatabase::get('users')->where('id', 2)->result();
+StaticDatabase::get('users')->where('id','=', 2)->result();
 //atau 
-StaticDatabase::get('users')->where('id', 2)->where('nama','defri')->result();
+StaticDatabase::get('users')->where('id','=', 2)->where('nama','defri')->result();
 //SELECT * FROM users WHERE id = 2 AND nama = 'defri'
 ```
 
@@ -93,7 +93,7 @@ $data = array(
     'email' => 'defriblackertz@gmail.com'
 );
 
-StaticDatabase::update('users', $data)->where('id', 7)->result();
+StaticDatabase::update('users', $data)->where('id','=', 7)->result();
 ```
 
 <h1>Delete Query</h1>
