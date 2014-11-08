@@ -34,7 +34,7 @@ StaticDatabase::query('SELECT id, nama, email FROM users')->result();
 ``` php
 StaticDatabase::get('users')->where('id','=', 2)->result();
 //atau 
-StaticDatabase::get('users')->where('id','=', 2)->where('nama','defri')->result();
+StaticDatabase::get('users')->where('id','=', 2)->where('nama','=','defri')->result();
 //SELECT * FROM users WHERE id = 2 AND nama = 'defri'
 ```
 
