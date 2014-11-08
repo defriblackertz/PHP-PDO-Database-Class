@@ -98,7 +98,7 @@ StaticDatabase::update('users', $data)->where('id','=', 7)->result();
 
 <h1>Delete Query</h1>
 ``` php
-StaticDatabase::delete('users')->where('id', 7)->result();
+StaticDatabase::delete('users')->where('id','=', 7)->result();
 ```
 <h1>Pesan Error</h1>
 ![ScreenShot](/error.png)
