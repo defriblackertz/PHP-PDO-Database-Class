@@ -321,10 +321,22 @@ class StaticDatabase {
                 }
                 
                 if (strpos($filter, 'UPDATE') !== false) {
-                    foreach (static::$_datatable as $f => $v) {
-                        $stmt->bindValue(':' . $f, $v);
+                    if(is_array(static::$_datatable)){
+                        foreach (static::$_datatable as $f => $v) {
+                            if(is_array($v)){
+                                foreach ($v as $keys => $values) {
+                                    var_dump($values);
+                                    $stmt->bindValue(':' . $keys, $values);
+                                }
+                            }else{
+                                $stmt->bindValue(':' . $f, $v);
+                            }
+                            
+                        }
+                        return $stmt->execute();
+                    }else{
+                        return $stmt->execute();
                     }
-                    return $stmt->execute();
                 } else if (strpos($filter, 'DELETE') !== false) {
                     return $stmt->execute();
                 } 
